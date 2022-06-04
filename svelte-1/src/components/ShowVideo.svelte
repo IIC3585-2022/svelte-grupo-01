@@ -1,5 +1,6 @@
 <script setup lang="ts">
-    import { currentVideo } from './../stores'
+    const urlParams = new URLSearchParams(window.location.search);
+    const currentVideo = urlParams.get('video');
 </script>
   <template>
   <div class="w-full">
@@ -7,7 +8,7 @@
       <iframe 
         width="640"
         height="360"
-        src={`https://www.youtube.com/embed/${$currentVideo}?autoplay=1`}
+        src={`https://www.youtube.com/embed/${currentVideo}?autoplay=1`}
         title="YouTube video player"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

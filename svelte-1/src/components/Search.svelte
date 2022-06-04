@@ -1,6 +1,6 @@
 <script setup lang="ts">
-    import { Tab } from '../StoreState';
-    import {videos, currentVideo, currentTab} from './../stores'
+    import { navigate } from "svelte-routing";
+    import {videos} from './../stores'
 
     let searchQuery;
 
@@ -9,15 +9,13 @@
         const result = await fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchQuery}&part=snippet&maxResults=50&key=AIzaSyA-tvEokrKF-vdJuqA-MXucQclYYiivAXI`)
         const response = await result.json();
         videos.setVideos(response.items);
-        currentTab.changeTab(Tab.VIDEOS);
-        currentVideo.changeVideo(undefined);
         searchQuery = ''
+        navigate('/videos')
       }
     }
     function back() {
       videos.setVideos([]);
-      currentTab.changeTab(Tab.FAV);
-      currentVideo.changeVideo(undefined);
+      navigate('/')
     }
   </script>
   

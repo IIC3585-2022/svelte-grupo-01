@@ -1,10 +1,11 @@
 <script lang="ts">
+    import { navigate } from "svelte-routing";
     import type { Video } from '../StoreState';
-    import { currentVideo, favVideos  } from './../stores'
+    import { favVideos  } from './../stores'
     export let video: Video;
   
     function showVideo() {
-      currentVideo.changeVideo(video.id.videoId);
+      navigate(`/watch?video=${video.id.videoId}`);
     }
     function addFavVideo(e: MouseEvent) {
       e.stopPropagation()
