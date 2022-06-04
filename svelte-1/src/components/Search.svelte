@@ -1,20 +1,15 @@
 <script setup lang="ts">
     import { navigate } from "svelte-routing";
-    import {videos} from './../stores'
 
     let searchQuery;
 
     async function search(e?: KeyboardEvent) {
       if(searchQuery && ((e && e.key === 'Enter') || !e.key) ) {
-        const result = await fetch(`https://www.googleapis.com/youtube/v3/search?q=${searchQuery}&part=snippet&maxResults=50&key=AIzaSyA-tvEokrKF-vdJuqA-MXucQclYYiivAXI`)
-        const response = await result.json();
-        videos.setVideos(response.items);
+        navigate(`/videos?search=${searchQuery}`)
         searchQuery = ''
-        navigate('/videos')
       }
     }
     function back() {
-      videos.setVideos([]);
       navigate('/')
     }
   </script>

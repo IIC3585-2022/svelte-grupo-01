@@ -1,15 +1,6 @@
 import { writable } from 'svelte/store';
 import type { Video } from './StoreState';
 
-function createVideos() {
-	const { subscribe, set } = writable<Video[]>([]);
-
-	return {
-		subscribe,
-		setVideos: (newVideos: Video[]) => set(newVideos)
-	};
-}
-
 function createFavVideos() {
     const { subscribe, update } = writable<Video[]>(
         window.localStorage.getItem('favVideos') !== null ? 
@@ -33,7 +24,6 @@ function createFavVideos() {
     }
 }
 
-export const videos = createVideos();
 export const favVideos = createFavVideos();
 
 
