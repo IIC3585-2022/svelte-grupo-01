@@ -5,18 +5,22 @@
 	import Videos from "./Videos.svelte"
 	import {Tab} from './Tab'
 	import {currentTab, currentVideo} from './stores';
+	import { Route, Router } from 'svelte-navigator'
 </script>
-
+<Router>
 <Search />
 <div class="centered">
-	{#if $currentVideo === undefined && $currentTab === Tab.VIDEOS}
-		<Videos />
-	{:else if $currentVideo === undefined && $currentTab === Tab.FAV}
-		<FavVideos />
-	{:else if $currentVideo !== undefined}
-		<ShowVideo />
-	{/if}
+		<Route>
+			<FavVideos />
+		</Route>
+		<Route path="/search/:query" let:params>
+			<Videos query={params.query}/>
+		</Route>
+		<Route path="/view/:id" let:params>
+			<ShowVideo id={params.id}/>
+		</Route>
 </div>
+</Router>
 
 <style>
 	:global(body) {

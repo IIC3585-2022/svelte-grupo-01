@@ -1,14 +1,29 @@
 <script lang="ts">
+  import type { Video } from "./Tab";
+
+  export let query: string;
   import YoutubeVideo from "./YoutubeVideo.svelte";
-  import {videos} from './stores';
+
+  async function searchYoutube(query): Promise<Video[]> {
+    console.log("buscando" + query)
+    const result = await fetch(`https://www.googleapis.com/youtube/v3/search?q=${query}&part=snippet&maxResults=50&key=AIzaSyA-tvEokrKF-vdJuqA-MXucQclYYiivAXI`)
+    const response = await result.json();
+    return response.items;
+  }
 </script>
 
 
 <div class="w-full">
   <h1 class="title">Mis videos favoritos</h1>
-  {#each $videos as video}
-    <YoutubeVideo video={video} />
-  {/each}
+  {#await searchYoutube(query)}
+    Buscando...
+  {:then videos} 
+    {#each videos as video (video.id.videoId)}
+      <YoutubeVideo video={video} />
+    {/each}
+  {:catch}
+  hola
+  {/await}
 </div>
 
 <style>

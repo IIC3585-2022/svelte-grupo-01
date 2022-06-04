@@ -1,9 +1,11 @@
 <script lang="ts">
-	import {searchYoutube, back} from './stores';
-  let query;
-  function handleKeyup(e: KeyboardEvent) {
+  import { Link, useNavigate } from "svelte-navigator"
+	import {back} from './stores';
+  let query: string = "";
+  const navigate = useNavigate();
+  function handleKeyup(e: KeyboardEvent, query: string) {
     if(e.key === "Enter")
-      searchYoutube(query)
+      navigate(`/search/${query}`)
   }
 </script>
 <div class="search-bar flex">
@@ -14,9 +16,11 @@
   </div> 
   <div class="right flex">
     <div class="search-input" >
-    <input bind:value={query} class="no-display" on:keyup={handleKeyup} placeholder="Buscar" />
+    <input bind:value={query} class="no-display" on:keyup={e => handleKeyup(e, query)} placeholder="Buscar" />
     </div>
-    <button on:click={() => searchYoutube(query)} class="search-button">Buscar</button>
+    <Link to={`/search/${query}`}>
+      <button class="search-button">Buscar</button>
+    </Link>
   </div>
    <div class="flex">
     <button on:click={back} class="fav-button">Ver mis videos favoritos</button>

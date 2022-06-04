@@ -6,15 +6,6 @@ export const videos = writable([]);
 export const currentTab = writable(Tab.FAV);
 export const favVideos = writable<Array<Video>>(JSON.parse(window.localStorage.getItem('favVideos')) || []); // TODO: localstorage
 
-export async function searchYoutube(query: string) {
-  console.log("buscando" + query)
-  const result = await fetch(`https://www.googleapis.com/youtube/v3/search?q=${query}&part=snippet&maxResults=50&key=AIzaSyA-tvEokrKF-vdJuqA-MXucQclYYiivAXI`)
-  const response = await result.json();
-  currentVideo.set(undefined);
-  currentTab.set(Tab.VIDEOS);
-  videos.set(response.items);
-};
-
 export function back() {
   currentVideo.set(undefined);
   currentTab.set(Tab.FAV);

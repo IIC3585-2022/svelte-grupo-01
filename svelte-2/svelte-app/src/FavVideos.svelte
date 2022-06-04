@@ -1,14 +1,13 @@
 <script lang="ts">
 
   import { favVideos } from "./stores";
-  import { Video } from "./Tab";
   import YoutubeVideo from "./YoutubeVideo.svelte";
 </script>
 
 
 <div class="w-full">
   <h1 class="title">Mis videos favoritos</h1>
-  {#each $favVideos as video}
+  {#each $favVideos as video (video.id.videoId)}
     <YoutubeVideo video={video} />
   {/each}
 </div>
