@@ -1,14 +1,12 @@
 <script lang="ts">
   import YoutubeVideo from "./YoutubeVideo.svelte";
   import {videos} from './stores';
-  let searchVideos = []
-  videos.subscribe(vs => searchVideos = vs);
 </script>
 
 
 <div class="w-full">
   <h1 class="title">Mis videos favoritos</h1>
-  {#each searchVideos as video}
+  {#each $videos as video}
     <YoutubeVideo video={video} />
   {/each}
 </div>

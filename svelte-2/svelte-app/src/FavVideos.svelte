@@ -3,14 +3,12 @@
   import { favVideos } from "./stores";
   import { Video } from "./Tab";
   import YoutubeVideo from "./YoutubeVideo.svelte";
-  let favouriteVideos: Array<Video> = []
-  favVideos.subscribe((fv) => favouriteVideos = fv);
 </script>
 
 
 <div class="w-full">
   <h1 class="title">Mis videos favoritos</h1>
-  {#each favouriteVideos as video}
+  {#each $favVideos as video}
     <YoutubeVideo video={video} />
   {/each}
 </div>

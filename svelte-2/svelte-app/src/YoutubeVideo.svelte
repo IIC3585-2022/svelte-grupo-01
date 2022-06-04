@@ -2,8 +2,6 @@
   import { showVideo, addFavVideo, deleteFavVideo, favVideos } from "./stores";
   import { Video } from "./Tab";
   export let video: Video;
-  let favouriteVideos: Array<Video> = []
-  favVideos.subscribe((fv) => favouriteVideos = fv);
 </script>
 
 <div class="flex youtube-thumbnail" on:click={() => showVideo(video.id.videoId)} title={video.snippet.title}>
@@ -14,7 +12,7 @@
     alt={video.snippet.thumbnails.default.url}
   />
   <div class="video-title">{video.snippet.title}</div>
-  {#if !favouriteVideos.map(video => video.id.videoId).includes(video.id.videoId)}
+  {#if !$favVideos.map(video => video.id.videoId).includes(video.id.videoId)}
   <button class='add-fav' on:click|stopPropagation={() => addFavVideo(video)} > Añadir a favorito</button>
   {:else}
   <button class='delete-fav' on:click|stopPropagation={() => deleteFavVideo(video)}> Eliminar de favoritos</button>

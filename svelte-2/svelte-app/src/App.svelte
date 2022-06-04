@@ -5,19 +5,15 @@
 	import Videos from "./Videos.svelte"
 	import {Tab} from './Tab'
 	import {currentTab, currentVideo} from './stores';
-	let tab = Tab.FAV;
-	currentTab.subscribe((newTab) => tab = newTab);
-	let video = undefined;
-	currentVideo.subscribe((v => video = v));
 </script>
 
 <Search />
 <div class="centered">
-	{#if video === undefined && tab === Tab.VIDEOS}
+	{#if $currentVideo === undefined && $currentTab === Tab.VIDEOS}
 		<Videos />
-	{:else if video === undefined && tab === Tab.FAV}
+	{:else if $currentVideo === undefined && $currentTab === Tab.FAV}
 		<FavVideos />
-	{:else if video !== undefined}
+	{:else if $currentVideo !== undefined}
 		<ShowVideo />
 	{/if}
 </div>
