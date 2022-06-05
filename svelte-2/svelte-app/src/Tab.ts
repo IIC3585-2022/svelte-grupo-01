@@ -1,8 +1,4 @@
 
-export enum Tab {
-  VIDEOS = 'videos',
-  FAV = 'fav'
-}
 export type Video = {
   kind: string,
   etag: string,

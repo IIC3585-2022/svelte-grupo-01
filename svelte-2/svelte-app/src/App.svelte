@@ -3,8 +3,6 @@
 	import FavVideos from "./FavVideos.svelte"
 	import ShowVideo from "./ShowVideo.svelte"
 	import Videos from "./Videos.svelte"
-	import {Tab} from './Tab'
-	import {currentTab, currentVideo} from './stores';
 	import { Route, Router } from 'svelte-navigator'
 </script>
 <Router>

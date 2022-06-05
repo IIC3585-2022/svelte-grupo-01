@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Link, useNavigate } from "svelte-navigator"
-	import {back} from './stores';
   let query: string = "";
   const navigate = useNavigate();
   function handleKeyup(e: KeyboardEvent, query: string) {
@@ -10,28 +9,39 @@
 </script>
 <div class="search-bar flex">
   <div class="left">
-    <button on:click={back} class="left-button">
-      <img src="/MyTube.png" class="logo" alt="logo" />
-    </button>
+    <button class="left-button">
+      <Link to="/">
+          <img src="/MyTube.png" class="logo" alt="logo" />
+      </Link>
+  </button>
   </div> 
   <div class="right flex">
     <div class="search-input" >
     <input bind:value={query} class="no-display" on:keyup={e => handleKeyup(e, query)} placeholder="Buscar" />
     </div>
-    <Link to={`/search/${query}`}>
-      <button class="search-button">Buscar</button>
-    </Link>
+    <button class="search-button">
+      <Link to={`/search/${query}`}>
+        Buscar
+      </Link>
+    </button>
   </div>
    <div class="flex">
-    <button on:click={back} class="fav-button">Ver mis videos favoritos</button>
+    <button class="fav-button">
+      <Link to="/">
+        Ver mis videos favoritos
+      </Link>
+    </button>
   </div>
 </div>
-
 <style>
 
 div.left {
   width: 15%;
   display: flex;
+}
+:global(button.fav-button a) {
+  color: #ffffff;
+  text-decoration: none;
 }
 div.search-bar {
   background-color: #202020;
@@ -90,11 +100,15 @@ button.search-button {
   outline: none;
   border: 0;
   border-radius: 0;
+  margin: 0;
   background-color: #323232;
-  color: #ffffff;
+  color: #ffffff !important;
   cursor: pointer;
   padding-top: 0;
   padding-bottom: 0;
+}
+:global(button.search-button a) {
+  color: #ffffff;
 }
 
 button.fav-button {

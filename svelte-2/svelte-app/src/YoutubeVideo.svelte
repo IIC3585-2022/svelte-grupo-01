@@ -16,9 +16,9 @@
     />
     <div class="video-title">{video.snippet.title}</div>
     {#if !$favVideos.map(video => video.id.videoId).includes(video.id.videoId)}
-    <button class='add-fav' on:click|stopPropagation={() => addFavVideo(video)} > Añadir a favorito</button>
+    <button class='add-fav' on:click|stopPropagation|capture|preventDefault={() => addFavVideo(video)} > Añadir a favorito</button>
     {:else}
-    <button class='delete-fav' on:click|stopPropagation={() => deleteFavVideo(video)}> Eliminar de favoritos</button>
+    <button class='delete-fav' on:click|stopPropagation|capture|preventDefault={() => deleteFavVideo(video)}> Eliminar de favoritos</button>
     {/if}
   </div>
 </Link>

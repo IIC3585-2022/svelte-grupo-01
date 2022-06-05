@@ -14,9 +14,11 @@
 
 
 <div class="w-full">
-  <h1 class="title">Mis videos favoritos</h1>
+  <h1 class="title">Búsqueda: {query}</h1>
   {#await searchYoutube(query)}
+  <div class="searching-text">
     Buscando...
+  </div>
   {:then videos} 
     {#each videos as video (video.id.videoId)}
       <YoutubeVideo video={video} />
@@ -37,5 +39,8 @@
     width: 100%;
     text-align: center;
     display: block;
+  }
+  div.searching-text {
+    color: #ffffff;
   }
   </style>
