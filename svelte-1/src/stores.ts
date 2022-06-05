@@ -1,31 +1,5 @@
 import { writable } from 'svelte/store';
-import { Tab, Video } from './StoreState';
-
-function createVideos() {
-	const { subscribe, set } = writable<Video[]>([]);
-
-	return {
-		subscribe,
-		setVideos: (newVideos: Video[]) => set(newVideos)
-	};
-}
-
-function createCurrentVideo() {
-    const { subscribe, set } = writable<string | undefined>();
-
-    return {
-        subscribe,
-        changeVideo: (newVideo: string | undefined) => set(newVideo)
-    }
-}
-
-function createTab() {
-    const { subscribe, set } = writable<Tab>(Tab.FAV);
-    return {
-        subscribe,
-        changeTab: (tab: Tab) => set(tab)
-    }
-}
+import type { Video } from './StoreState';
 
 function createFavVideos() {
     const { subscribe, update } = writable<Video[]>(
@@ -50,9 +24,6 @@ function createFavVideos() {
     }
 }
 
-export const videos = createVideos();
-export const currentVideo = createCurrentVideo();
-export const currentTab = createTab();
 export const favVideos = createFavVideos();
 
 
