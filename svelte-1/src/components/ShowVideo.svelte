@@ -8,7 +8,7 @@
   <div class="yt-container" bind:clientWidth={w}>
     <iframe
       width={w}
-      height={w / 640 * 360}}
+      height={w / 640 * 360}
       src={`https://www.youtube.com/embed/${currentVideo}?autoplay=1`}
       title="YouTube video player"
       frameborder="0"
