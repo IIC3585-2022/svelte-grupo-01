@@ -14,7 +14,7 @@
 
 <div class="w-full">
   <h1 class="title">Resultados de busqueda</h1>
-  {#each videos as video}
+  {#each videos as video (video)}
     <YoutubeVideo {video} />
   {/each}
 </div>

@@ -6,6 +6,7 @@
   async function search(e?: KeyboardEvent) {
     if (searchQuery && ((e && e.key === "Enter") || !e)) {
       navigate(`/videos?search=${searchQuery}`);
+      location.reload();
       searchQuery = "";
     }
   }
