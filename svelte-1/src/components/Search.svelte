@@ -1,40 +1,46 @@
 <script setup lang="ts">
-    import { navigate } from "svelte-routing";
+  import { navigate } from "svelte-routing";
 
-    let searchQuery;
+  let searchQuery;
 
-    async function search(e?: KeyboardEvent) {
-      if(searchQuery && ((e && e.key === 'Enter') || !e.key) ) {
-        navigate(`/videos?search=${searchQuery}`)
-        searchQuery = ''
-      }
+  async function search(e?: KeyboardEvent) {
+    if (searchQuery && ((e && e.key === "Enter") || !e)) {
+      navigate(`/videos?search=${searchQuery}`);
+      searchQuery = "";
     }
-    function back() {
-      navigate('/')
-    }
-  </script>
-  
-  <template>
+  }
+  function back() {
+    navigate("/");
+  }
+</script>
+
+<template>
   <div class="search-bar flex">
     <div class="left">
       <button on:click={back} class="left-button">
-        <img src="/MyTube.png" class="logo" alt="my-tube-logo"/>
+        <img src="/MyTube.png" class="logo" alt="my-tube-logo" />
       </button>
-    </div> 
+    </div>
     <div class="right flex">
-      <div class="search-input" >
-      <input bind:value={searchQuery} class="no-display" on:keyup={(e) => search(e)} placeholder="Buscar" />
+      <div class="search-input">
+        <input
+          bind:value={searchQuery}
+          class="no-display"
+          on:keyup={(e) => search(e)}
+          placeholder="Buscar"
+        />
       </div>
       <button on:click={() => search()} class="search-button">Buscar</button>
     </div>
-     <div class="flex">
-      <button on:click={back} class="fav-button">Ver mis videos favoritos</button>
+    <div class="flex">
+      <button on:click={back} class="fav-button"
+        >Ver mis videos favoritos</button
+      >
     </div>
   </div>
-  
-  </template>
-  
-  <style scoped>
+</template>
+
+<style scoped>
   div.left {
     width: 15%;
     display: flex;
@@ -78,7 +84,7 @@
     background-color: transparent;
     color: #e2e2e2;
   }
-  
+
   input.no-display:focus {
     border: 0;
     outline: none;
@@ -87,11 +93,11 @@
     width: 100%;
     margin: auto 0;
   }
-  
+
   .flex {
     display: flex;
   }
-  
+
   button.search-button {
     outline: none;
     border: 0;
@@ -102,7 +108,7 @@
     padding-top: 0;
     padding-bottom: 0;
   }
-  
+
   button.fav-button {
     outline: none;
     border: 0;
@@ -113,5 +119,4 @@
     padding-top: 0;
     padding-bottom: 0;
   }
-  
-  </style>
+</style>
