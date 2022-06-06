@@ -17,28 +17,26 @@
   }
 </script>
 
-<template>
-  <div
-    class="flex youtube-thumbnail"
-    on:click={showVideo}
-    title={video.snippet.title}
-  >
-    <img
-      src={video.snippet.thumbnails.default.url}
-      height={`${video.snippet.thumbnails.default.height}`}
-      width={`${video.snippet.thumbnails.default.width}`}
-      alt="video title"
-    />
-    <div class="video-title">{video.snippet.title}</div>
-    {#if !$favVideos.some((vid) => vid.id.videoId === video.id.videoId)}
-      <button class="add-fav" on:click={addFavVideo}> Añadir a favorito</button>
-    {:else}
-      <button class="delete-fav" v-else on:click={deleteFavVideo}>
-        Eliminar de favoritos</button
-      >
-    {/if}
-  </div>
-</template>
+<div
+  class="flex youtube-thumbnail"
+  on:click={showVideo}
+  title={video.snippet.title}
+>
+  <img
+    src={video.snippet.thumbnails.default.url}
+    height={`${video.snippet.thumbnails.default.height}`}
+    width={`${video.snippet.thumbnails.default.width}`}
+    alt="video title"
+  />
+  <div class="video-title">{video.snippet.title}</div>
+  {#if !$favVideos.some((vid) => vid.id.videoId === video.id.videoId)}
+    <button class="add-fav" on:click={addFavVideo}> Añadir a favorito</button>
+  {:else}
+    <button class="delete-fav" on:click={deleteFavVideo}>
+      Eliminar de favoritos</button
+    >
+  {/if}
+</div>
 
 <style>
   div.flex {

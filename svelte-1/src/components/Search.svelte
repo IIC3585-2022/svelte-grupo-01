@@ -14,31 +14,27 @@
   }
 </script>
 
-<template>
-  <div class="search-bar flex">
-    <div class="left">
-      <button on:click={back} class="left-button">
-        <img src="/MyTube.png" class="logo" alt="my-tube-logo" />
-      </button>
-    </div>
-    <div class="right flex">
-      <div class="search-input">
-        <input
-          bind:value={searchQuery}
-          class="no-display"
-          on:keyup={(e) => search(e)}
-          placeholder="Buscar"
-        />
-      </div>
-      <button on:click={() => search()} class="search-button">Buscar</button>
-    </div>
-    <div class="flex">
-      <button on:click={back} class="fav-button"
-        >Ver mis videos favoritos</button
-      >
-    </div>
+<div class="search-bar flex">
+  <div class="left">
+    <button on:click={back} class="left-button">
+      <img src="/MyTube.png" class="logo" alt="my-tube-logo" />
+    </button>
   </div>
-</template>
+  <div class="right flex">
+    <div class="search-input">
+      <input
+        bind:value={searchQuery}
+        class="no-display"
+        on:keyup={(e) => search(e)}
+        placeholder="Buscar"
+      />
+    </div>
+    <button on:click={() => search()} class="search-button">Buscar</button>
+  </div>
+  <div class="flex">
+    <button on:click={back} class="fav-button">Ver mis videos favoritos</button>
+  </div>
+</div>
 
 <style scoped>
   div.left {

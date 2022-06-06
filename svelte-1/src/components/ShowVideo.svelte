@@ -3,21 +3,19 @@
   const currentVideo = urlParams.get("video");
 </script>
 
-<template>
-  <div class="w-full">
-    <div class="yt-container">
-      <iframe
-        width="640"
-        height="360"
-        src={`https://www.youtube.com/embed/${currentVideo}?autoplay=1`}
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      />
-    </div>
+<div class="w-full">
+  <div class="yt-container">
+    <iframe
+      width="640"
+      height="360"
+      src={`https://www.youtube.com/embed/${currentVideo}?autoplay=1`}
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
   </div>
-</template>
+</div>
 
 <style>
   div.w-full {

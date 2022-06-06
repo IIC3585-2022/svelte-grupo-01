@@ -12,14 +12,12 @@
     });
 </script>
 
-<template>
-  <div class="w-full">
-    <h1 class="title">Resultados de busqueda</h1>
-    {#each videos as video}
-      <YoutubeVideo {video} />
-    {/each}
-  </div>
-</template>
+<div class="w-full">
+  <h1 class="title">Resultados de busqueda</h1>
+  {#each videos as video}
+    <YoutubeVideo {video} />
+  {/each}
+</div>
 
 <style>
   div.w-full {

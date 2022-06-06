@@ -8,16 +8,14 @@
   export const url = "";
 </script>
 
-<template>
-  <Router {url}>
-    <Search />
-    <div class="centered">
-      <Route path="/videos"><Videos /></Route>
-      <Route path="/"><FavVideos /></Route>
-      <Route path="/watch"><ShowVideo /></Route>
-    </div>
-  </Router>
-</template>
+<Router {url}>
+  <Search />
+  <div class="centered">
+    <Route path="/videos"><Videos /></Route>
+    <Route path="/"><FavVideos /></Route>
+    <Route path="/watch"><ShowVideo /></Route>
+  </div>
+</Router>
 
 <style>
   div.centered {
