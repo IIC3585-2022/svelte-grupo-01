@@ -7,7 +7,7 @@
 
 <div class="w-full">
   <h1 class="title">Mis videos favoritos</h1>
-  {#each $favVideos as video (video.id.videoId)}
+  {#each $favVideos as video (video)}
     <YoutubeVideo video={video} />
   {/each}
 </div>

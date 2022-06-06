@@ -20,7 +20,8 @@
     Buscando...
   </div>
   {:then videos} 
-    {#each videos as video (video.id.videoId)}
+  {console.log(videos)}
+    {#each videos as video (video)}
       <YoutubeVideo video={video} />
     {/each}
   {:catch}
