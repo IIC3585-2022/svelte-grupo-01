@@ -3,13 +3,13 @@
 
   let searchQuery;
 
-    async function search(e?: KeyboardEvent) {
-      if(searchQuery && ((e && e.key === 'Enter') || !e) ) {
-        navigate(`/videos?search=${searchQuery}`)
-        searchQuery = ''
-      }
+  async function search(e?: KeyboardEvent) {
+    if (searchQuery && ((e && e.key === "Enter") || !e)) {
+      navigate(`/videos?search=${searchQuery}`);
+      searchQuery = "";
     }
   }
+
   function back() {
     navigate("/");
   }
