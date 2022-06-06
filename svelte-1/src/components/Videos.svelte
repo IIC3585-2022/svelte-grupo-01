@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import YoutubeVideo from "./YoutubeVideo.svelte";
-  const urlParams = new URLSearchParams(window.location.search);
-  const searchQuery = urlParams.get("search");
+  import { useLocation } from "svelte-navigator";
+  const location = useLocation();
   async function searchYoutube(searchQuery: string) {
     let videos = [];
     const response = await fetch(
@@ -15,7 +15,7 @@
 
 <div class="w-full">
   <h1 class="title">Resultados de busqueda</h1>
-  {#await searchYoutube(searchQuery)}
+  {#await searchYoutube($location.search)}
     <div class="searching-text">Buscando...</div>
   {:then videos}
     {#each videos as video (video)}

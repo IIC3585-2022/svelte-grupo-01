@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { navigate } from "svelte-routing";
+  import { navigate } from "svelte-navigator";
   import type { Video } from "../StoreState";
   import { favVideos } from "./../stores";
   export let video: Video;

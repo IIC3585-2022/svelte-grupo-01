@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { Router, Route } from "svelte-routing";
+  import { Router, Route} from "svelte-navigator";
   import FavVideos from "./components/FavVideos.svelte";
   import Search from "./components/Search.svelte";
   import ShowVideo from "./components/ShowVideo.svelte";

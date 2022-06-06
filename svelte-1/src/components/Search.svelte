@@ -1,12 +1,11 @@
 <script setup lang="ts">
-  import { navigate } from "svelte-routing";
+  import { navigate } from "svelte-navigator";
 
   let searchQuery;
 
   async function search(e?: KeyboardEvent) {
     if (searchQuery && ((e && e.key === "Enter") || !e)) {
       navigate(`/videos?search=${searchQuery}`);
-      location.reload();
       searchQuery = "";
     }
   }
