@@ -1,13 +1,14 @@
 <script setup lang="ts">
   const urlParams = new URLSearchParams(window.location.search);
   const currentVideo = urlParams.get("video");
+  let w;
 </script>
 
 <div class="w-full">
-  <div class="yt-container">
+  <div class="yt-container" bind:clientWidth={w}>
     <iframe
-      width="640"
-      height="360"
+      width={w}
+      height={w / 640 * 360}}
       src={`https://www.youtube.com/embed/${currentVideo}?autoplay=1`}
       title="YouTube video player"
       frameborder="0"
@@ -25,5 +26,6 @@
   }
   div.yt-container {
     margin: 0 auto;
+    width: 100%;
   }
 </style>

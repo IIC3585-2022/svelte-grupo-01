@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { Router, Route } from "svelte-routing";
-  import FavVideos from "./components/favVideos.svelte";
+  import FavVideos from "./components/FavVideos.svelte";
   import Search from "./components/Search.svelte";
   import ShowVideo from "./components/ShowVideo.svelte";
   import Videos from "./components/Videos.svelte";
