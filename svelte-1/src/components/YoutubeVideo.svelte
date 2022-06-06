@@ -7,14 +7,6 @@
   function showVideo() {
     navigate(`/watch?video=${video.id.videoId}`);
   }
-  function addFavVideo(e: MouseEvent) {
-    e.stopPropagation();
-    favVideos.addFavVideo(video);
-  }
-  function deleteFavVideo(e: MouseEvent) {
-    e.stopPropagation();
-    favVideos.deleteFavVideo(video);
-  }
 </script>
 
 <div
@@ -30,9 +22,21 @@
   />
   <div class="video-title">{video.snippet.title}</div>
   {#if !$favVideos.some((vid) => vid.id.videoId === video.id.videoId)}
-    <button class="add-fav" on:click={addFavVideo}> Añadir a favorito</button>
+    <button
+      class="add-fav"
+      on:click|stopPropagation={() => {
+        favVideos.addFavVideo(video);
+      }}
+    >
+      Añadir a favorito</button
+    >
   {:else}
-    <button class="delete-fav" on:click={deleteFavVideo}>
+    <button
+      class="delete-fav"
+      on:click|stopPropagation={() => {
+        favVideos.deleteFavVideo(video);
+      }}
+    >
       Eliminar de favoritos</button
     >
   {/if}
