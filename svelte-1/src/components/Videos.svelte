@@ -4,7 +4,7 @@
   const searchQuery = urlParams.get("search");
   let videos = [];
   fetch(
-    `https://www.googleapis.com/youtube/v3/search?q=${searchQuery}&part=snippet&maxResults=50&key=AIzaSyA-tvEokrKF-vdJuqA-MXucQclYYiivAXI`
+    `https://www.googleapis.com/youtube/v3/search?q=${searchQuery}&part=snippet&maxResults=50&key=AIzaSyDIq4ZGvS8Z3FXABUHvBFvSAAHXMALeTmA`
   )
     .then((data) => data.json())
     .then((vids) => {
