@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts">
   const urlParams = new URLSearchParams(window.location.search);
   const currentVideo = urlParams.get("video");
   let w;

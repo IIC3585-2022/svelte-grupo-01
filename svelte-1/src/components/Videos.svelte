@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts">
   import YoutubeVideo from "./YoutubeVideo.svelte";
   import { useLocation } from "svelte-navigator";
   const location = useLocation();

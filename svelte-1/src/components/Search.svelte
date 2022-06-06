@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts">
   import { navigate } from "svelte-navigator";
 
   let searchQuery;

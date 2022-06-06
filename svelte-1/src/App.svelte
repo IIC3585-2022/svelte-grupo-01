@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts">
   import { Router, Route} from "svelte-navigator";
   import FavVideos from "./components/FavVideos.svelte";
   import Search from "./components/Search.svelte";

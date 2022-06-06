@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts">
   import { favVideos } from "./../stores";
   import YoutubeVideo from "./YoutubeVideo.svelte";
 </script>
